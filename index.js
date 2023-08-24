@@ -37,6 +37,11 @@ const playGame = () => {
 };
 
 const updateDOM = (moveOne, moveTwo, outcome) => {
+  const test = document.getElementById("result");
+  if (test) {
+    test.remove();
+  }
+
   document.getElementById(
     "player-one-move__img"
   ).src = `./images/${moveOne}.png`;
@@ -45,7 +50,9 @@ const updateDOM = (moveOne, moveTwo, outcome) => {
     "player-two-move__img"
   ).src = `./images/${moveTwo}.png`;
 
-  let result = (document.createElement("div").innerText = outcome);
+  let result = document.createElement("div");
+  result.id = "result";
+  result.innerText = outcome;
   document.body.append(result);
 };
 
